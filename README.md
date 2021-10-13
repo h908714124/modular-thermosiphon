@@ -43,12 +43,12 @@ requires dagger;
 
 ````sh
 ./mvnw clean package
-$JAVA_HOME/bin/jpackage --name coffee --type app-image --module-path `./get_module_path` --module coffee/example.dagger.CoffeeApp --dest target/out
+jpackage --name coffee --type app-image --module-path `./get_module_path` --module coffee/example.dagger.CoffeeApp --dest target/out
 ./create_launcher_script >coffee && chmod +x coffee
 ./coffee
 ````
 
-This will only work with jdk16 or higher.
+The `jpackage` part will only work with jdk16 or higher.
 The `jpackage` binary can be found in `$JAVA_HOME/bin`.
 
 ### See also
