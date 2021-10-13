@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+echo '#!/usr/bin/env bash'
+EXECUTABLE=`find target/out -type f -name coffee`
+echo "$EXECUTABLE" '$@'
+
