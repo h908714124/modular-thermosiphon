@@ -17,7 +17,7 @@
     <dependency>
       <groupId>io.github.jbock-java</groupId>
       <artifactId>dapper</artifactId>
-      <version>1.0</version>
+      <version>1.1</version>
     </dependency>
 
   </dependencies>
@@ -39,7 +39,7 @@
             <dependency>
               <groupId>io.github.jbock-java</groupId>
               <artifactId>dapper-compiler</artifactId>
-              <version>1.0</version>
+              <version>1.1</version>
             </dependency>
           </annotationProcessorPaths>
         </configuration>
