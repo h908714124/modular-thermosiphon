@@ -6,7 +6,7 @@ Add this dependency:
 <dependency>
   <groupId>io.github.jbock-java</groupId>
   <artifactId>dapper</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 </dependency>
 ````
 
@@ -23,7 +23,7 @@ Then configure the annotation processor:
           <dependency>
             <groupId>io.github.jbock-java</groupId>
             <artifactId>dapper-compiler</artifactId>
-            <version>1.1</version>
+            <version>1.2</version>
           </dependency>
         </annotationProcessorPaths>
       </configuration>
