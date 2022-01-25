@@ -36,7 +36,6 @@ Then configure the annotation processor:
 Add this to `module-info.java`:
 
 ````java
-requires jakarta.inject;
 requires dagger;
 ````
 
