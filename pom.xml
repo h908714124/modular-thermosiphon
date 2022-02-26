@@ -10,6 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <dapper.version>2.41.1</dapper.version>
   </properties>
 
   <dependencies>
@@ -17,7 +18,7 @@
     <dependency>
       <groupId>io.github.jbock-java</groupId>
       <artifactId>dapper</artifactId>
-      <version>1.2.1</version>
+      <version>${dapper.version}</version>
     </dependency>
 
   </dependencies>
@@ -39,7 +40,7 @@
             <dependency>
               <groupId>io.github.jbock-java</groupId>
               <artifactId>dapper-compiler</artifactId>
-              <version>1.2.1</version>
+              <version>${dapper.version}</version>
             </dependency>
           </annotationProcessorPaths>
         </configuration>

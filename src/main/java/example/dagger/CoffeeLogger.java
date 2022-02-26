@@ -26,13 +26,15 @@ import java.util.List;
 @Singleton
 public final class CoffeeLogger {
     private final List<String> logs = new ArrayList<>();
+    private final String level;
 
     @Inject
-    CoffeeLogger() {
+    CoffeeLogger(String level) {
+        this.level = level;
     }
 
     public void log(String msg) {
-        logs.add(msg);
+        logs.add(level + " " + msg);
     }
 
     public List<String> logs() {

@@ -16,6 +16,7 @@
 
 package example.dagger;
 
+import dagger.BindsInstance;
 import dagger.Component;
 import jakarta.inject.Singleton;
 
@@ -32,10 +33,15 @@ public class CoffeeApp {
         CoffeeMaker maker();
 
         CoffeeLogger logger();
+
+        @Component.Factory
+        interface Factory {
+            CoffeeShop create();
+        }
     }
 
     public static void main(String[] args) {
-        CoffeeShop coffeeShop = DaggerCoffeeApp_CoffeeShop.builder().build();
+        CoffeeShop coffeeShop = DaggerCoffeeApp_CoffeeShop.factory().create();
         coffeeShop.maker().brew();
         coffeeShop.logger().logs().forEach(log -> System.out.println(log));
     }
