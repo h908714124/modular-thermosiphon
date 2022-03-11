@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dapper.version>2.41.1</dapper.version>
+    <dapper.version>2.41.2</dapper.version>
   </properties>
 
   <dependencies>
