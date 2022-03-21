@@ -18,8 +18,10 @@ package example.dagger;
 
 import dagger.Lazy;
 import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 
 /** A coffee maker to brew the coffee. */
+@Singleton
 public class CoffeeMaker {
     private final CoffeeLogger logger;
     private final Lazy<Heater> heater; // Create a possibly costly heater only when we use it.
