@@ -10,15 +10,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dapper.version>2.41.2</dapper.version>
+    <simple.component.version>1.001</simple.component.version>
   </properties>
 
   <dependencies>
 
     <dependency>
       <groupId>io.github.jbock-java</groupId>
-      <artifactId>dapper</artifactId>
-      <version>${dapper.version}</version>
+      <artifactId>simple-component</artifactId>
+      <version>${simple.component.version}</version>
     </dependency>
 
   </dependencies>
@@ -39,8 +39,8 @@
           <annotationProcessorPaths>
             <dependency>
               <groupId>io.github.jbock-java</groupId>
-              <artifactId>dapper-compiler</artifactId>
-              <version>${dapper.version}</version>
+              <artifactId>simple-component-compiler</artifactId>
+              <version>${simple.component.version}</version>
             </dependency>
           </annotationProcessorPaths>
         </configuration>

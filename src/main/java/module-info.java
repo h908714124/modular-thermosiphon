@@ -1,4 +1,6 @@
 module coffee {
 
-  requires dagger;
+    requires java.compiler;
+
+    requires io.jbock.simple;
 }

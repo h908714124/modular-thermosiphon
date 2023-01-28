@@ -16,7 +16,14 @@
 
 package example.dagger;
 
-/** A pump to pump the coffee. */
+import io.jbock.simple.Inject;
+
 public interface Pump {
+
+    @Inject
+    static Pump create(CoffeeLogger logger, Heater heater) {
+        return new Thermosiphon(logger, heater);
+    }
+
     void pump();
 }

@@ -16,8 +16,15 @@
 
 package example.dagger;
 
-/** A heater to heat the coffee. */
+import io.jbock.simple.Inject;
+
 public interface Heater {
+
+    @Inject
+    static Heater getInstance(CoffeeLogger logger) {
+        return new ElectricHeater(logger);
+    }
+
     void on();
 
     void off();

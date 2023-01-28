@@ -16,17 +16,11 @@
 
 package example.dagger;
 
-import jakarta.inject.Inject;
-import jakarta.inject.Singleton;
-
-/** An electric heater to heat the coffee. */
-@Singleton
-public class ElectricHeater implements Heater {
+class ElectricHeater implements Heater {
 
     private final CoffeeLogger logger;
     private boolean heating;
 
-    @Inject
     ElectricHeater(CoffeeLogger logger) {
         this.logger = logger;
     }

@@ -16,16 +16,9 @@
 
 package example.dagger;
 
-import jakarta.inject.Inject;
-import jakarta.inject.Singleton;
+import io.jbock.simple.Inject;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/** A logger to logs steps while brewing coffee. */
-@Singleton
 public final class CoffeeLogger {
-    private final List<String> logs = new ArrayList<>();
     private final String level;
 
     @Inject
@@ -34,10 +27,6 @@ public final class CoffeeLogger {
     }
 
     public void log(String msg) {
-        logs.add(level + " " + msg);
-    }
-
-    public List<String> logs() {
-        return new ArrayList<>(logs);
+        System.out.println(level + " " + msg);
     }
 }

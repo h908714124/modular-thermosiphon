@@ -16,34 +16,22 @@
 
 package example.dagger;
 
-import dagger.Component;
-import jakarta.inject.Singleton;
+import io.jbock.simple.Component;
 
-/** The main app responsible for brewing the coffee and printing the logs. */
 public class CoffeeApp {
-    @Singleton
-    @Component(
-            modules = {
-                    HeaterModule.class,
-                    PumpModule.class
-            }
-    )
+    @Component
     public interface CoffeeShop {
         CoffeeMaker maker();
 
-        CoffeeLogger logger();
-
         @Component.Factory
         interface Factory {
-            CoffeeShop create();
+            CoffeeShop create(String logLevel);
         }
     }
 
     public static void main(String[] args) {
-        CoffeeShop coffeeShop = DaggerCoffeeApp_CoffeeShop.factory().create();
-        System.out.println(coffeeShop.maker());
-        System.out.println(coffeeShop.maker());
-        System.out.println(DaggerCoffeeApp_CoffeeShop.factory().create().maker());
-        coffeeShop.logger().logs().forEach(System.out::println);
+        String logLevel = "INFO";
+        CoffeeShop coffeeShop = CoffeeApp_CoffeeShop_Impl.factory().create(logLevel);
+        coffeeShop.maker().brew();
     }
 }
