@@ -1,6 +1,5 @@
 module coffee {
 
-    requires java.compiler;
-
+    requires jakarta.inject;
     requires io.jbock.simple;
 }
