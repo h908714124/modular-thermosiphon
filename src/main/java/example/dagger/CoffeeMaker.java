@@ -1,6 +1,7 @@
 package example.dagger;
 
 import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 
 public class CoffeeMaker {
 
@@ -9,10 +10,10 @@ public class CoffeeMaker {
     private final Pump pump;
 
     @Inject
-    CoffeeMaker(CoffeeLogger logger, Heater heater, Pump pump) {
+    CoffeeMaker(CoffeeLogger logger, Heater heater, Provider<Pump> pump) {
         this.logger = logger;
         this.heater = heater;
-        this.pump = pump;
+        this.pump = pump.get();
     }
 
     public void brew() {
