@@ -19,6 +19,7 @@
       <groupId>io.github.jbock-java</groupId>
       <artifactId>simple-component</artifactId>
       <version>${simple.component.version}</version>
+      <scope>provided</scope>
     </dependency>
     
     <dependency>
