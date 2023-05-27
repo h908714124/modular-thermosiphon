@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <simple.component.version>1.013</simple.component.version>
+    <simple.component.version>1.015</simple.component.version>
   </properties>
 
   <dependencies>
