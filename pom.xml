@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <simple.component.version>1.015</simple.component.version>
+    <simple.component.version>1.020</simple.component.version>
   </properties>
 
   <dependencies>
@@ -26,6 +26,13 @@
       <groupId>jakarta.inject</groupId>
       <artifactId>jakarta.inject-api</artifactId>
       <version>2.0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.1</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -73,6 +80,10 @@
           </execution>
         </executions>
       </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.1</version>
+        </plugin>
     </plugins>
   </build>
 </project>

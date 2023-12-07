@@ -2,7 +2,7 @@ package example.dagger;
 
 import jakarta.inject.Inject;
 
-public final class CoffeeLogger {
+public class CoffeeLogger {
 
     private final String level;
 

@@ -4,7 +4,7 @@ import io.jbock.simple.Component;
 
 public class CoffeeApp {
 
-    @Component
+    @Component(mockBuilder = true)
     public interface CoffeeShop {
         CoffeeMaker maker();
 
