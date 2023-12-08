@@ -2,23 +2,31 @@ package example.dagger;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CoffeeShopTest {
 
     @Test
-    void integrationTest() {
-        boolean[] invoked = {false};
-        CoffeeLogger mockCoffeeLogger = new CoffeeLogger("OUCH") {
+    void testWithMockLogger() {
+        List<String> messages = new ArrayList<>();
+        CoffeeLogger mockLogger = new CoffeeLogger("") {
             @Override
             public void log(String msg) {
-                invoked[0] = true;
+                messages.add(msg);
             }
         };
-        CoffeeApp.CoffeeShop app = CoffeeApp_CoffeeShop_Impl.mockBuilder().coffeeLogger(mockCoffeeLogger)
+        CoffeeApp.CoffeeShop app = CoffeeApp_CoffeeShop_Impl.mockBuilder()
+                .coffeeLogger(mockLogger)
                 .build()
-                .create("INFO");
+                .create("");
         app.maker().brew();
-        assertTrue(invoked[0]);
+        assertEquals(List.of(
+                        "~ ~ ~ heating ~ ~ ~",
+                        "=> => pumping => =>",
+                        " [_]P coffee! [_]P "),
+                messages);
     }
 }
