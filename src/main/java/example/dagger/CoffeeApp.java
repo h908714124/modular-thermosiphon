@@ -8,15 +8,17 @@ public class CoffeeApp {
     public interface CoffeeShop {
         CoffeeMaker maker();
 
-        @Component.Factory
-        interface Factory {
-            CoffeeShop create(String logLevel);
+        @Component.Builder
+        interface Builder {
+            Builder logLevel(String logLevel);
+
+            CoffeeShop build();
         }
     }
 
     public static void main(String[] args) {
         String logLevel = "INFO";
-        CoffeeShop coffeeShop = CoffeeApp_CoffeeShop_Impl.factory().create(logLevel);
+        CoffeeShop coffeeShop = CoffeeApp_CoffeeShop_Impl.builder().logLevel(logLevel).build();
         coffeeShop.maker().brew();
     }
 }

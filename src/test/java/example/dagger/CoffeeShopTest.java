@@ -18,10 +18,11 @@ class CoffeeShopTest {
                 messages.add(msg);
             }
         };
-        CoffeeApp.CoffeeShop app = CoffeeApp_CoffeeShop_Impl.mockBuilder()
+        CoffeeApp.CoffeeShop app = CoffeeApp_CoffeeShop_Impl.builder()
+                .logLevel("")
+                .withMocks()
                 .coffeeLogger(mockLogger)
-                .build()
-                .create("");
+                .build();
         app.maker().brew();
         assertEquals(List.of(
                         "~ ~ ~ heating ~ ~ ~",
