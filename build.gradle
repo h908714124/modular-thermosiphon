@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     implementation 'jakarta.inject:jakarta.inject-api:2.0.1'
-    def simple_component_version = '1.021'
+    def simple_component_version = '1.023'
     implementation("io.github.jbock-java:simple-component:$simple_component_version")
     annotationProcessor("io.github.jbock-java:simple-component-compiler:$simple_component_version")
     testImplementation('org.junit.jupiter:junit-jupiter:5.10.1')
