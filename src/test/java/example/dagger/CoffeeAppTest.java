@@ -1,5 +1,6 @@
 package example.dagger;
 
+import example.dagger.CoffeeApp;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -7,23 +8,19 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CoffeeShopTest {
+
+class CoffeeAppTest {
 
     @Test
     void testWithMockLogger() {
         List<String> messages = new ArrayList<>();
-        CoffeeLogger mockLogger = new CoffeeLogger("") {
-            @Override
-            public void log(String msg) {
-                messages.add(msg);
-            }
-        };
-        CoffeeApp.CoffeeShop app = CoffeeApp_CoffeeShop_Impl.builder()
+        CoffeeApp.Logger mockLogger = messages::add;
+        CoffeeApp.CoffeeComponent app = CoffeeApp_CoffeeComponent_Impl.builder()
                 .logLevel("")
                 .withMocks()
-                .coffeeLogger(mockLogger)
+                .coffeeAppLogger(mockLogger)
                 .build();
-        app.maker().brew();
+        app.coffeeMaker().brew();
         assertEquals(List.of(
                         "~ ~ ~ heating ~ ~ ~",
                         "=> => pumping => =>",

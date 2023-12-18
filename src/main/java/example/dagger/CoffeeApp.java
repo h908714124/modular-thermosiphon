@@ -1,24 +1,43 @@
 package example.dagger;
 
 import io.jbock.simple.Component;
+import jakarta.inject.Inject;
 
-public class CoffeeApp {
+class CoffeeApp {
 
     @Component(mockBuilder = true)
-    public interface CoffeeShop {
-        CoffeeMaker maker();
+    interface CoffeeComponent {
+        CoffeeMaker coffeeMaker();
 
         @Component.Builder
         interface Builder {
             Builder logLevel(String logLevel);
 
-            CoffeeShop build();
+            CoffeeComponent buildComponent();
         }
     }
 
-    public static void main(String[] args) {
-        String logLevel = "INFO";
-        CoffeeShop coffeeShop = CoffeeApp_CoffeeShop_Impl.builder().logLevel(logLevel).build();
-        coffeeShop.maker().brew();
+    interface Logger {
+        void log(String msg);
+    }
+
+    static class CoffeeMaker {
+        private final Logger logger;
+
+        @Inject
+        CoffeeMaker(Logger logger) {
+            this.logger = logger;
+        }
+
+        void brew() {
+            logger.log("~ ~ ~ heating ~ ~ ~");
+            logger.log("=> => pumping => =>");
+            logger.log(" [_]P coffee! [_]P ");
+        }
+    }
+
+    @Inject
+    static Logger createLogger(String level) {
+        return msg -> System.out.println(level + " " + msg);
     }
 }
